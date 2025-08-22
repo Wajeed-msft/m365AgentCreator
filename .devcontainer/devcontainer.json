@@ -1,5 +1,4 @@
 {
   "name": "M365 Agent Builder",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install xdg-utils && npm install -g @microsoft/m365agentstoolkit-cli @microsoft/teams-app-test-tool && atk new -c basic-custom-engine-agent -l typescript -n myagent -i false && cd myagent && npm install @anthropic-ai/claude-code dotenv && npm install"
+  "postCreateCommand": "sudo apt-get update -y && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xdg-utils && npm install -g @microsoft/m365agentstoolkit-cli @microsoft/teams-app-test-tool && atk new -c basic-custom-engine-agent -l typescript -n myagent -i false && cd myagent && npm install @anthropic-ai/claude-code dotenv && npm install"
 }
-
