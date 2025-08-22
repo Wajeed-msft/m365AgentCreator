@@ -1,4 +1,4 @@
 {
   "name": "M365 Agent Builder",
-  "postCreateCommand": "npm install -g @microsoft/m365agentstoolkit-cli @microsoft/teams-app-test-tool && cd ~ && atk new -c basic-custom-engine-agent -l typescript -n myagent -i false && cd myagent && npm install @anthropic-ai/claude-code dotenv && npm install"
+  "postCreateCommand": "npm install -g @microsoft/m365agentstoolkit-cli @microsoft/teams-app-test-tool && atk new -c basic-custom-engine-agent -l typescript -n myagent -i false && cd myagent && npm install @anthropic-ai/claude-code dotenv && npm install"
 }
