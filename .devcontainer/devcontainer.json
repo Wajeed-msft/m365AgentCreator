@@ -1,22 +1,52 @@
 {
   "name": "M365 Agent Builder",
-  "postCreateCommand": "sudo apt-get update -y && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xdg-utils && npm install -g @microsoft/m365agentstoolkit-cli @microsoft/teams-app-test-tool && atk new -c basic-custom-engine-agent -l typescript -n myagent -i false && cd myagent && npm install @anthropic-ai/claude-code dotenv && npm install",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "onCreateCommand": [
+    "bash",
+    ".devcontainer/prebuild-setup.sh"
+  ],
+  "updateContentCommand": "cd myagent && npm install",
+  "postStartCommand": "echo 'Codespace ready! M365 Agent Builder environment is pre-configured.'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "typescript.preferences.preferTypeOnlyAutoImports": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      }
+    }
+  },
   "forwardPorts": [3978, 56150, 3000],
   "portsAttributes": {
     "3978": {
       "label": "bot",
-      "visibility": "public"
+      "visibility": "public",
+      "protocol": "http"
     },
     "56150": {
-      "label": "playGroundUI",
-      "visibility": "public"
+      "label": "playGroundUI", 
+      "visibility": "public",
+      "protocol": "http"
     },
     "3000": {
       "label": "playGroundModified",
-      "visibility": "public"
+      "visibility": "public", 
+      "protocol": "http"
     }
+  },
+  "remoteEnv": {
+    "NODE_ENV": "development",
+    "CODESPACE_PREBUILD": "true"
   }
 }
-
-
 
