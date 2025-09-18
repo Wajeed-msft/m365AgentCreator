@@ -3,7 +3,10 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
   },
   "onCreateCommand": [
     "bash",
@@ -34,13 +37,13 @@
       "protocol": "http"
     },
     "56150": {
-      "label": "playGroundUI", 
+      "label": "playGroundUI",
       "visibility": "public",
       "protocol": "http"
     },
     "3000": {
       "label": "playGroundModified",
-      "visibility": "public", 
+      "visibility": "public",
       "protocol": "http"
     }
   },
@@ -49,4 +52,3 @@
     "CODESPACE_PREBUILD": "true"
   }
 }
-
